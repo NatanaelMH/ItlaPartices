@@ -1,26 +1,16 @@
-﻿using System;
-
-class Program
+﻿
+namespace MiAplicacion
 {
-    static void Main()
+    class Program
     {
-        // Natanael Marte 20241711
-        // Programa que determina si un número es par o impar
-
-        Console.Write("Ingrese un número: ");
-        int numero = Convert.ToInt32(Console.ReadLine()); 
-
-        
-        if (numero % 2 == 0)
+        static void Main(string[] args)
         {
-            Console.WriteLine("El número " + numero + " es PAR.");
-        }
-        else
-        {
-            Console.WriteLine("El número " + numero + " es IMPAR.");
-        }
 
-        Console.ReadLine(); 
+            Console.WriteLine(30.05/3.00); 
+
+
+
+        }
     }
 }
 
