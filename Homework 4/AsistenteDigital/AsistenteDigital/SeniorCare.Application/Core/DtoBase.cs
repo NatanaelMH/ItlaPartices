@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SeniorCare.Application.Core
 {
-    internal class DtoBase
+    public class DtoBase
     {
+        public Guid Id { get; set; }
     }
 }
+

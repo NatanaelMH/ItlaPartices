@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SeniorCare.Application.Core;
+using SeniorCare.Application.Dtos.Citas;
+using SeniorCare.Application.Dtos.Medicamentos;
 using System.Threading.Tasks;
 
 namespace SeniorCare.Application.Contract
 {
-    internal class ICitaService
+    public interface ICitaService : IBaseService<CitaDto>
     {
+        Task<ServiceResult<MedicamentoDto>> AgendarCitaMedicaAsync(MedicamentoDto dto);
     }
 }

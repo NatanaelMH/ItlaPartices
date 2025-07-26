@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SeniorCare.Application.Core;
+using SeniorCare.Application.Dtos.Medicamentos;
 using System.Threading.Tasks;
 
 namespace SeniorCare.Application.Contract
 {
-    internal class IMedicamentoService
+    public interface IMedicamentoService : IBaseService<MedicamentoDto>
     {
+        Task<ServiceResult<MedicamentoDto>> RecordarMedicamentoAsync(int id);
+        Task<ServiceResult<bool>> MarcarComoTomadoAsync(int id);
     }
 }
+

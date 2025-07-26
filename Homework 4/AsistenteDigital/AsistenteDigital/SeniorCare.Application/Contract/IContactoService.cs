@@ -1,12 +1,14 @@
-﻿using System;
+﻿using SeniorCare.Application.Core;
+using SeniorCare.Application.Dtos.Contactos;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SeniorCare.Application.Contract
 {
-    internal class IContactoService
+    public interface IContactoService : IBaseService<ContactoDto>
     {
+        Task<ServiceResult<ContactoDto>> AgregarContactoImportanteAsync(ContactoDto dto);
+        Task<ServiceResult<bool>> EliminarContactoAsync(Guid id);
     }
 }

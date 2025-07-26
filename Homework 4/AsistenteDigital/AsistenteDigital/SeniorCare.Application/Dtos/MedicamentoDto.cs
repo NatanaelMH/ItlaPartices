@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SeniorCare.Application.Dtos_Medicamentos
+namespace SeniorCare.Application.Dtos.Medicamentos
 {
-    internal class MedicamentoDto
+    public class MedicamentoDto
     {
+        public Guid Id { get; set; }
+        public string Nombre { get; set; }
+        public string Dosis { get; set; }
+        public string Frecuencia { get; set; }
     }
 }

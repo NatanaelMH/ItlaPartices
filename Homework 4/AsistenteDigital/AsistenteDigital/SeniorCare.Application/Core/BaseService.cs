@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace SeniorCare.Application.Core
 {
-    internal class BaseService
+    public class BaseService
     {
+        public bool IsValidString(string value)
+        {
+            return !string.IsNullOrWhiteSpace(value);
+        }
+
+        public bool IsValidDate(DateTime date)
+        {
+            return date > DateTime.MinValue && date < DateTime.MaxValue;
+        }
+
+        public bool IsPositiveNumber(int number)
+        {
+            return number > 0;
+        }
     }
 }
