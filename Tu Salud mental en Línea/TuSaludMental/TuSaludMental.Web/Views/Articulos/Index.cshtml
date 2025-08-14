@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TuSaludMental.Web.Models.Article>
+@{
+    ViewData["Title"] = "Artículos de salud";
+    var q = ViewBag.Q as string;
+}
+<h2 class="mt-2">Artículos de salud</h2>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-6">
+        <input name="q" value="@q" class="form-control" placeholder="Buscar por título o tag..." />
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-primary" asp-action="Crear">Nuevo artículo</a>
+        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+</form>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Tags</th>
+            <th>Fecha</th>
+            <th style="width:180px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Titulo</td>
+                <td>@a.Tags</td>
+                <td>@a.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Detalle" asp-route-id="@a.Id">Ver</a>
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@a.Id">Editar</a>
+                    <form asp-action="Eliminar" asp-route-id="@a.Id" method="post" class="d-inline">
+                        <button class="btn btn-sm btn-outline-danger" type="submit" onclick="return confirm('¿Eliminar artículo?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

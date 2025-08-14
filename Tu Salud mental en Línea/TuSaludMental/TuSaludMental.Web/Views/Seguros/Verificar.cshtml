@@ -1,0 +1,25 @@
+﻿@model TuSaludMental.Web.Models.PatientInsurance
+@{
+    ViewData["Title"] = "Verificar Póliza";
+}
+<h2 class="mt-2">Verificar Póliza</h2>
+
+<form method="get" class="row g-3 mb-3">
+    <div class="col-md-6">
+        <label class="form-label">Número de póliza</label>
+        <input name="numero" class="form-control" />
+    </div>
+    <div class="col-md-6 d-flex align-items-end">
+        <button class="btn btn-primary" type="submit">Verificar</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <div class="alert @(Model.Estado == "ACTIVO" ? "alert-success" : "alert-danger")">
+        <strong>Seguro:</strong> @Model.Seguro?.Nombre<br />
+        <strong>Póliza:</strong> @Model.NumeroPoliza<br />
+        <strong>Vigencia:</strong> @Model.VigenteHasta.ToString("yyyy-MM-dd")<br />
+        <strong>Estado:</strong> @Model.Estado
+    </div>
+}

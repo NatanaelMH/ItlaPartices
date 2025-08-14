@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold mb-3">Tu Salud Mental en Línea</h1>
+                <p class="lead text-muted">
+                    Gestiona tus citas, verifica tu seguro y recibe recordatorios automáticamente.
+                    Simple y rápido para pacientes jóvenes, adultos y crónicos.
+                </p>
+                <div class="d-flex gap-2 mt-3">
+                    <a class="btn btn-primary btn-lg" asp-controller="Citas" asp-action="Index">Agendar cita</a>
+                    <a class="btn btn-outline-secondary btn-lg" asp-controller="Seguros" asp-action="MisSeguros">Mis seguros</a>
+                </div>
+                <div class="mt-4">
+                    <ul class="list-unstyled small text-muted">
+                        <li>✔ Verificación de póliza y vigencia</li>
+                        <li>✔ Recordatorios 24h antes de la cita</li>
+                        <li>✔ Perfiles: crónico, joven, adulto</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Acciones rápidas</h5>
+                        <div class="list-group list-group-flush">
+                            <a class="list-group-item list-group-item-action" asp-controller="Citas" asp-action="Crear">➕ Crear nueva cita</a>
+                            <a class="list-group-item list-group-item-action" asp-controller="Citas" asp-action="Index">📅 Ver mis citas</a>
+                            <a class="list-group-item list-group-item-action" asp-controller="Seguros" asp-action="MisSeguros">🛡️ Gestionar seguros</a>
+                            <a class="list-group-item list-group-item-action" asp-controller="Citas" asp-action="CompletarPerfil">👤 Completar perfil</a>
+                        </div>
+                        <p class="text-muted small mt-3 mb-0">Sugerencia: agrega tu seguro primero.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

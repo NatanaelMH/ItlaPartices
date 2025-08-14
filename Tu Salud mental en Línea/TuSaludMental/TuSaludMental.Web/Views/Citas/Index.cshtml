@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TuSaludMental.Web.Models.Appointment>
+@{
+    ViewData["Title"] = "Mis Citas";
+}
+<h2 class="mt-2">Mis Citas</h2>
+
+@if (TempData["ok"] != null)
+{
+    <div class="alert alert-success">@TempData["ok"]</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="@Url.Action("Crear", "Citas")">Nueva cita</a>
+    <a class="btn btn-secondary" href="@Url.Action("MisSeguros", "Seguros")">Mis seguros</a>
+    <a class="btn btn-outline-dark" href="@Url.Action("CompletarPerfil", "Citas")">Perfil</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha/Hora</th>
+            <th>Doctor</th>
+            <th>Especialidad</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.FechaHora.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@c.Doctor</td>
+                <td>@c.Especialidad</td>
+                <td>@c.Estado</td>
+                <td>
+                    @if (c.Estado == "PENDIENTE" || c.Estado == "CONFIRMADA")
+                    {
+                        <form asp-action="Cancelar" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@c.Id" />
+                            <button class="btn btn-sm btn-danger" type="submit">Cancelar</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

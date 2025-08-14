@@ -1,0 +1,49 @@
+﻿@model TuSaludMental.Web.Models.Appointment
+@{
+    ViewData["Title"] = "Crear Cita";
+    var tieneSeguro = (bool)(ViewBag.TieneSeguroActivo ?? false);
+}
+<h2 class="mt-2">Crear Cita</h2>
+
+@if (!tieneSeguro)
+{
+    <div class="alert alert-warning d-flex align-items-center justify-content-between">
+        <div>Necesitas un <strong>seguro activo y vigente</strong> para crear citas.</div>
+        <a class="btn btn-sm btn-outline-primary" href="@Url.Action("MisSeguros", "Seguros")">Agregar Seguro</a>
+    </div>
+}
+
+<form asp-action="Crear" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Doctor</label>
+        <input asp-for="Doctor" class="form-control" />
+        <span asp-validation-for="Doctor" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Especialidad</label>
+        <input asp-for="Especialidad" class="form-control" placeholder="Psicólogo, Psiquiatra, etc." />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Fecha y hora</label>
+        <input class="form-control" type="datetime-local"
+               name="FechaHora"
+               value="@(Model.FechaHora == default ? DateTime.Now.AddDays(1).ToString("yyyy-MM-ddTHH:mm") : Model.FechaHora.ToString("yyyy-MM-ddTHH:mm"))" />
+        <small class="text-muted">Ej.: 2025-08-20 14:30</small>
+        <span asp-validation-for="FechaHora" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Motivo</label>
+        <textarea asp-for="Motivo" class="form-control" rows="3" placeholder="Describe brevemente el motivo"></textarea>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" @(tieneSeguro ? "" : "disabled")>Guardar</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Volver</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,35 @@
+﻿@model TuSaludMental.Web.Models.Patient
+@{
+    ViewData["Title"] = "Perfil del Paciente";
+}
+<h2 class="mt-2">Perfil del Paciente</h2>
+
+<form asp-action="CompletarPerfil" method="post" class="row g-3">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="UserId" />
+    <div class="col-md-4">
+        <label class="form-label">Teléfono</label>
+        <input asp-for="Telefono" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Tipo de sangre</label>
+        <input asp-for="TipoSangre" class="form-control" placeholder="O+, A-, ..." />
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Fecha de nacimiento</label>
+        <input asp-for="FechaNacimiento" type="date" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Perfil</label>
+        <select asp-for="Perfil" class="form-select">
+            <option value="CRONICO">Crónico</option>
+            <option value="JOVEN">Joven</option>
+            <option value="ADULTO">Adulto</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Volver</a>
+    </div>
+</form>
+

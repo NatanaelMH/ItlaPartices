@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TuSaludMental.Web.Models.PatientInsurance>
+@{
+    ViewData["Title"] = "Mis Seguros";
+    var seguros = (IEnumerable<TuSaludMental.Web.Models.Insurance>)ViewBag.Seguros;
+}
+<h2 class="mt-2">Mis Seguros</h2>
+
+@if (TempData["ok"] != null)
+{
+    <div class="alert alert-success">@TempData["ok"]</div>
+}
+
+<form asp-action="Agregar" method="post" class="row g-3 mb-4">
+    <div class="col-md-4">
+        <label class="form-label">Seguro</label>
+        <select name="seguroId" class="form-select">
+            @foreach (var s in seguros)
+            {
+                <option value="@s.Id">@s.Nombre</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Número de póliza</label>
+        <input name="numeroPoliza" class="form-control" required />
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Vigente hasta</label>
+        <input name="vigenteHasta" type="date" class="form-control" required />
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Agregar</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Citas")">Volver a Citas</a>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Seguro</th>
+            <th>Póliza</th>
+            <th>Vigente hasta</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Seguro?.Nombre</td>
+                <td>@p.NumeroPoliza</td>
+                <td>@p.VigenteHasta.ToString("yyyy-MM-dd")</td>
+                <td>@p.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
