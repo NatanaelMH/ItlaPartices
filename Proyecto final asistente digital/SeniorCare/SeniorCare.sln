@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeniorCare.Web", "SeniorCare.Web\SeniorCare.Web.csproj", "{A380D307-124B-4462-B986-5165ACE78DA0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeniorCare.Domain", "SeniorCare.Domain\SeniorCare.Domain.csproj", "{2558BA38-E9CD-4D16-99F3-6F506C5D6401}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeniorCare.Infrastructure", "SeniorCare.Infrastructure\SeniorCare.Infrastructure.csproj", "{DFA95472-596C-46DB-A99A-F24F1784EE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeniorCare.Tests.Ui", "SeniorCare.Tests.Ui\SeniorCare.Tests.Ui.csproj", "{A7A6B3B2-9477-4BFC-8A58-C62C0EB3CEA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DFA95472-596C-46DB-A99A-F24F1784EE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFA95472-596C-46DB-A99A-F24F1784EE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFA95472-596C-46DB-A99A-F24F1784EE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A6B3B2-9477-4BFC-8A58-C62C0EB3CEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A6B3B2-9477-4BFC-8A58-C62C0EB3CEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A6B3B2-9477-4BFC-8A58-C62C0EB3CEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A6B3B2-9477-4BFC-8A58-C62C0EB3CEA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
